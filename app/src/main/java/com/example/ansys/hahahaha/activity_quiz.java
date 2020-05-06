@@ -1,14 +1,19 @@
 package com.example.ansys.hahahaha;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 public class activity_quiz extends AppCompatActivity {
 
@@ -16,9 +21,19 @@ public class activity_quiz extends AppCompatActivity {
     RadioButton rb1,rb2,rb3,rb4;
     Button next_btn, quit_btn;
     RadioGroup rb_grp;
-
+    ImageButton hint_btn;    //힌트버튼
     TextView count_quiz;
     int count = 1;
+
+    int hint_see = activity_version_quiz.hint_see; //version_quiz에 있는 hint_see 변수 값 들고 옴
+
+    ///타이머
+    Button btn_start_pause, btn_reset;
+    TextView timer_text;
+    private static final long START_TIME_IN_MILLIS = 600000;
+    private CountDownTimer mCountDownTimer;
+    private boolean mTimerRunning;
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
 
     //문제
@@ -60,6 +75,7 @@ public class activity_quiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         receive_name = findViewById(R.id.receive_name);
+        hint_btn = findViewById(R.id.hint_btn); //힌트버튼 연결
 
         final TextView score = findViewById(R.id.score);
 
@@ -76,6 +92,7 @@ public class activity_quiz extends AppCompatActivity {
         quit_btn = findViewById(R.id.quit_btn); //종료버튼연결
         quiz_title = findViewById(R.id.quiz_title); //퀴즈문제 나오는 텍스트연결
         rb_grp = findViewById(R.id.rb_grp); //라디오그룹연결
+
         rb1 = findViewById(R.id.rb1);
         rb2 = findViewById(R.id.rb2);
         rb3 = findViewById(R.id.rb3);
@@ -86,6 +103,14 @@ public class activity_quiz extends AppCompatActivity {
         rb2.setText(opt[1]);
         rb3.setText(opt[2]);
         rb4.setText(opt[3]);
+
+
+        if(hint_see==1) {
+            hint_btn.setVisibility(View.VISIBLE);
+        }
+        else{
+            hint_btn.setVisibility(View.INVISIBLE);
+        }
 
         next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,5 +169,133 @@ public class activity_quiz extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        /////타이머
+        //타이머
+        timer_text = findViewById(R.id.timer_text); //텍스트
+
+        btn_start_pause= findViewById(R.id.btn_start_pause); //start버튼
+        btn_reset = findViewById(R.id.btn_reset); //reset버튼
+
+        btn_start_pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mTimerRunning) {
+                    pauseTimer();
+                } else {
+                    startTimer();
+                }
+            }
+        });
+
+        btn_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetTimer();
+            }
+        });
+
+        updateCountDownText();
+    }
+
+    private void startTimer() {
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                mTimerRunning = false;
+                btn_start_pause.setText("Start");
+                btn_start_pause.setVisibility(View.INVISIBLE);
+                btn_reset.setVisibility(View.VISIBLE);
+            }
+        }.start();
+
+        mTimerRunning = true;
+        btn_start_pause.setText("pause");
+        btn_reset.setVisibility(View.INVISIBLE);
+    }
+
+    private void pauseTimer() {
+        mCountDownTimer.cancel();
+        mTimerRunning = false;
+        btn_start_pause.setText("Start");
+        btn_reset.setVisibility(View.VISIBLE);
+    }
+
+    private void resetTimer() {
+        mTimeLeftInMillis = START_TIME_IN_MILLIS;
+        updateCountDownText();
+        btn_reset.setVisibility(View.INVISIBLE);
+        btn_start_pause.setVisibility(View.VISIBLE);
+    }
+
+    private void updateCountDownText() {
+        int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
+        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+
+        timer_text.setText(timeLeftFormatted);
+    }
+
+    //힌트
+    public void hint(View view){
+        AlertDialog.Builder dlg = new AlertDialog.Builder(activity_quiz.this);
+        if(flag==0){
+            dlg.setTitle("1번문제 힌트");
+            dlg.setMessage("main method");
+            dlg.show();
+        }
+        if(flag==1){
+            dlg.setTitle("2번문제 힌트");
+            dlg.setMessage("<=");
+            dlg.show();
+        }
+        if(flag==2){
+            dlg.setTitle("3번문제 힌트");
+            dlg.setMessage("this");
+            dlg.show();
+        }
+        if(flag==3){
+            dlg.setTitle("4번문제 힌트");
+            dlg.setMessage("interface");
+            dlg.show();
+        }
+        if(flag==4){
+            dlg.setTitle("5번문제 힌트");
+            dlg.setMessage("public");
+            dlg.show();
+        }
+        if(flag==5){
+            dlg.setTitle("6번문제 힌트");
+            dlg.setMessage("import pkg.*");
+            dlg.show();
+        }
+        if(flag==6){
+            dlg.setTitle("7번문제 힌트");
+            dlg.setMessage("None of the mentioned");
+            dlg.show();
+        }
+        if(flag==7){
+            dlg.setTitle("8번문제 힌트");
+            dlg.setMessage("java");
+            dlg.show();
+        }
+        if(flag==8){
+            dlg.setTitle("9번문제 힌트");
+            dlg.setMessage("equals()");
+            dlg.show();
+        }
+        if(flag==9){
+            dlg.setTitle("10번문제 힌트");
+            dlg.setMessage("int");
+            dlg.show();
+        }
     }
 }

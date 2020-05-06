@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".activity_quiz" />
         <activity android:name=".activity_result" />
-        <activity android:name=".activity_other" />
         <activity android:name=".activity_open_quiz" />
         <activity android:name=".activity_version_quiz"></activity>
     </application>

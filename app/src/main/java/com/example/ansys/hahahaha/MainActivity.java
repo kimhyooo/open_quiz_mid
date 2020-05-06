@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 name = edit_name.getText().toString();
-                Intent intent = new Intent(MainActivity.this, activity_quiz.class);
+                Intent intent = new Intent(MainActivity.this, activity_version_quiz.class);
                 intent.putExtra("name",name);
                 startActivity(intent);
             }
@@ -71,8 +71,7 @@ public class MainActivity extends AppCompatActivity {
         other_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, activity_other.class);
-                startActivity(intent);
+                //여기에 other클릭하면 어떤 이벤트 처리할건지 적으면 됩니다~
             }
         });
 

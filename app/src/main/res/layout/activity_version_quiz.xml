@@ -40,7 +40,7 @@
         android:text="HARD START"
         android:textColor="#ffffff"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/frameLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -79,13 +79,13 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/round_corner"
         android:backgroundTint="@color/colorGray"
+        android:onClick="normal_start1"
         android:text="NORMAL START"
         android:textColor="#ffffff"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        android:onClick="normal_start1"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
 
     <FrameLayout
@@ -123,13 +123,13 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/round_corner"
         android:backgroundTint="@color/colorGray"
+        android:onClick="easy_start1"
         android:text="EASY START"
         android:textColor="#ffffff"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        android:onClick="easy_start1"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 
     <FrameLayout
@@ -166,12 +166,12 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/round_corner"
         android:backgroundTint="@color/colorGray"
+        android:onClick="mix_start1"
         android:text="MIX START"
         android:textColor="#ffffff"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        android:onClick="mix_start1"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 </android.support.constraint.ConstraintLayout>
