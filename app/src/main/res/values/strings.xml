@@ -5,42 +5,42 @@
     <string name="title_quiz">HARD 버전</string>
 
 
-    <string name="question1">1. What is Deoxyribonucleic acid commonly referred to as?</string>
-    <string name="question1_choice1">RNA</string>
-    <string name="question1_choice2">CIA</string>
-    <string name="question1_choice3">DNA</string>
+    <string name="question1">1. 프로그램에서 한 번만 정의 할 수있는 것은 무엇일까요?</string>
+    <string name="question1_choice1">finalize method</string>
+    <string name="question1_choice2">static method</string>
+    <string name="question1_choice3">main method</string>
 
-    <string name="question2">2. What process involves treating rubber with sulfur to harden it?</string>
+    <string name="question2">2. 메소드에서 키워드를 호출 한 오브젝트를 참조하기 위해 사용하는 키워드는 무엇일까요?</string>
 
-    <string name="question3">3. Name two different organelles of a eukaryotic cell.</string>
-    <string name="question3_choice1">Ribosome</string>
-    <string name="question3_choice2">Plasmids</string>
-    <string name="question3_choice3">Golgi apparatus</string>
-    <string name="question3_choice4">Diploid</string>
+    <string name="question3">3. 객체지향언어는 무엇일까요?</string>
+    <string name="question3_choice1">Java</string>
+    <string name="question3_choice2">C</string>
+    <string name="question3_choice3">C++</string>
+    <string name="question3_choice4">JavaScript</string>
 
-    <string name="question4">4. This word describes the force that pulls objects to the middle of the earth?</string>
+    <string name="question4">4. Java에서 인터페이스를 정의하는 데 사용되는 키워드는 무엇일까요?</string>
 
-    <string name="question5">5 What type of trees yield the resin used to produce turpentine?</string>
-    <string name="question5_choice1">Palm trees</string>
-    <string name="question5_choice2">Pine trees</string>
-    <string name="question5_choice3">Oak trees</string>
+    <string name="question5">5 인터페이스에 사용할 수있는 액세스 지정자는 무엇일까요?</string>
+    <string name="question5_choice1">protected</string>
+    <string name="question5_choice2">public</string>
+    <string name="question5_choice3">private</string>
 
-    <string name="question6">6. Cumulus and Cirrus are types of what?</string>
+    <string name="question6">6. 다음 중 전체 패키지 \'pkg\'를 가져 오는 올바른 방법은 무엇일까요?</string>
 
-    <string name="question7">7. Which two planets have one or more moons?</string>
-    <string name="question7_choice1">Ceres</string>
-    <string name="question7_choice2">Mercury</string>
-    <string name="question7_choice3">Earth</string>
-    <string name="question7_choice4">Pluto</string>
+    <string name="question7">7. 생성자의 반환 유형은 무엇일까요?</string>
+    <string name="question7_choice1">void</string>
+    <string name="question7_choice2">float</string>
+    <string name="question7_choice3">None of the mentioned</string>
+    <string name="question7_choice4">int</string>
 
-    <string name="question8">8. Where in the human body would you find the scaphoid bone?</string>
+    <string name="question8">8. 다음 중 표준 Java 클래스를 모두 저장하는 패키지는 무엇일까요?</string>
 
-    <string name="question9">9. Which grow upwards Stalactites or Stalagmites?</string>
-    <string name="question9_choice1">Stalactites</string>
-    <string name="question9_choice2">Stalagmites</string>
+    <string name="question9">9. 두 String 객체가 동일한지 비교하기 위해 String 클래스의 다음 중 어떤 방법을 사용할까요?</string>
+    <string name="question9_choice1">Equals()</string>
+    <string name="question9_choice2">equals()</string>
 
-    <string name="question10">10. What process involves heating an ore to obtain a metal?</string>
+    <string name="question10">10. 바이트, 정수 및 리터럴 숫자를 포함하는 표현식이 다음 중 어느 것으로 오를까요?</string>
 
-    <string name="submit_answers">Submit Answers</string>
+    <string name="submit_answers">제출하기</string>
 
 </resources>
