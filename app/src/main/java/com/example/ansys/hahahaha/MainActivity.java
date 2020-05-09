@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intent = new Intent(this, activity_splash.class);
+        startActivity(intent);
+
         edit_name = findViewById(R.id.edit_name);
         start_btn = findViewById(R.id.start_btn);
         other_btn = findViewById(R.id.other_btn);
