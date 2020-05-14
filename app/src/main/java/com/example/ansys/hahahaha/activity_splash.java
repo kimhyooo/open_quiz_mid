@@ -35,4 +35,10 @@ public class activity_splash extends AppCompatActivity {
             }
         },3000);
     }
+
+    @Override
+    public void onBackPressed() {
+        //스플래시 화면에서 뒤로가기 기능 제거
+    }
+
 }
