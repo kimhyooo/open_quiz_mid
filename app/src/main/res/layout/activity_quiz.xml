@@ -41,30 +41,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_reset"
-        android:layout_width="40dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/round_corner_white"
-        android:text="RESET"
-        android:textSize="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timer_text" />
-
-    <Button
-        android:id="@+id/btn_start_pause"
-        android:layout_width="40dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/round_corner_white"
-        android:text="START"
-        android:textSize="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_reset"
-        app:layout_constraintTop_toBottomOf="@+id/timer_text" />
-
     <RadioGroup
         android:id="@+id/rb_grp"
         android:layout_width="wrap_content"
