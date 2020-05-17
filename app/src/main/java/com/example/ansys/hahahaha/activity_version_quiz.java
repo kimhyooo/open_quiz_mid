@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class activity_version_quiz extends AppCompatActivity {
     public static int hint_see = 0; //힌트 구분하기 위한
+    public static int version_see = 0; // quit_btn 구분하기 위한
 
     Button version_btn1 ,version_btn2, version_btn3, version_btn4;
 
@@ -23,6 +24,8 @@ public class activity_version_quiz extends AppCompatActivity {
     public void hard_start1(View view){
         Intent intent = new Intent(activity_version_quiz.this, activity_quiz.class);
         hint_see = 0; // 힌트 안 보임
+        version_see=0;
+
         startActivity(intent);
     }
 
@@ -30,12 +33,15 @@ public class activity_version_quiz extends AppCompatActivity {
         Intent intent = new Intent(activity_version_quiz.this, activity_quiz.class);
         startActivity(intent);
         hint_see = 0; // 힌트 안 보임
+        version_see=1;
+
     }
 
     public void easy_start1(View view){
         Intent intent = new Intent(activity_version_quiz.this, activity_quiz.class);
         startActivity(intent);
         hint_see = 1; //힌트 보임
+        version_see=2;
     }
 
     public void mix_start1(View view){

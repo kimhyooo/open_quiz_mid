@@ -26,14 +26,22 @@ public class activity_quiz extends AppCompatActivity {
     int count = 1;
 
     int hint_see = activity_version_quiz.hint_see; //version_quiz에 있는 hint_see 변수 값 들고 옴
+    int version_see = activity_version_quiz.version_see;
 
     ///타이머
-    Button btn_start_pause, btn_reset;
     TextView timer_text;
-    private static final long START_TIME_IN_MILLIS = 600000;
+    private static final long START_TIME_IN_MILLIS = 60000;  //hard버전
+    private static final long START_TIME_IN_MILLIS_1 = 90000;  //normal버전
+    private static final long START_TIME_IN_MILLIS_2 = 180000;  //easy버전
+
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
-    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;  //hard
+    private long mTimeLeftInMillis_1 = START_TIME_IN_MILLIS_1;  //normal
+    private long mTimeLeftInMillis_2 = START_TIME_IN_MILLIS_2;  //easy
+
+    int quit_btn_re = 0; //종료버튼 눌렀을때 화면 다시 안뜨게하는거
 
 
     //문제
@@ -117,12 +125,16 @@ public class activity_quiz extends AppCompatActivity {
             public void onClick(View view) {
 
                 count++;
-                count_quiz.setText(count+"/"+question.length);
 
                 if(rb_grp.getCheckedRadioButtonId()==-1)
                 {
                     Toast.makeText(getApplicationContext(), "하나를 고르세요!", Toast.LENGTH_SHORT).show();
+                    count--;
+                    count_quiz.setText(count+"/"+question.length);
                     return;
+                }
+                else{
+                    count_quiz.setText(count+"/"+question.length);
                 }
                 RadioButton uans = findViewById(rb_grp.getCheckedRadioButtonId());
                 String ansText = uans.getText().toString(); //사용자가 한 텍스트
@@ -165,83 +177,143 @@ public class activity_quiz extends AppCompatActivity {
         quit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mTimerRunning = false;
+                quit_btn_re=1; // 이 버튼 누르면 1로 바뀜
+                resetTimer();
                 Intent intent=new Intent(getApplicationContext(),activity_result.class);
                 startActivity(intent);
             }
         });
 
 
-        /////타이머
         //타이머
         timer_text = findViewById(R.id.timer_text); //텍스트
-
-        btn_start_pause= findViewById(R.id.btn_start_pause); //start버튼
-        btn_reset = findViewById(R.id.btn_reset); //reset버튼
-
-        btn_start_pause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mTimerRunning) {
-                    pauseTimer();
-                } else {
-                    startTimer();
-                }
-            }
-        });
-
-        btn_reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetTimer();
-            }
-        });
+        if (mTimerRunning) pauseTimer();
+        else startTimer();
 
         updateCountDownText();
     }
 
     private void startTimer() {
-        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                mTimeLeftInMillis = millisUntilFinished;
-                updateCountDownText();
-            }
+        if(version_see==0){
+            mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    mTimeLeftInMillis = millisUntilFinished;
+                    updateCountDownText();
+                }
+                @Override
+                public void onFinish() {
+                    if(quit_btn_re==1){
+                        mTimerRunning = false;
+                        finish();
+                    }
+                    else {
+                        mTimerRunning = false;
+                        Intent in = new Intent(activity_quiz.this, activity_result  .class);
+                        startActivity(in);
+                        finish();
+                    }
 
-            @Override
-            public void onFinish() {
-                mTimerRunning = false;
-                btn_start_pause.setText("Start");
-                btn_start_pause.setVisibility(View.INVISIBLE);
-                btn_reset.setVisibility(View.VISIBLE);
-            }
-        }.start();
+                }
+            }.start();
+            mTimerRunning = true;
 
-        mTimerRunning = true;
-        btn_start_pause.setText("pause");
-        btn_reset.setVisibility(View.INVISIBLE);
+        }
+
+        if(version_see==1){
+            mCountDownTimer = new CountDownTimer(mTimeLeftInMillis_1, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    mTimeLeftInMillis_1 = millisUntilFinished;
+                    updateCountDownText();
+                }
+                @Override
+                public void onFinish() {
+                    if(quit_btn_re==1){
+                        mTimerRunning = false;
+                        finish();
+                    }
+                    else {
+                        mTimerRunning = false;
+                        Intent in = new Intent(activity_quiz.this, activity_result  .class);
+                        startActivity(in);
+                        finish();
+                    }
+
+                }
+            }.start();
+            mTimerRunning = true;
+        }
+
+        if(version_see==2){
+            mCountDownTimer = new CountDownTimer(mTimeLeftInMillis_2, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    mTimeLeftInMillis_2 = millisUntilFinished;
+                    updateCountDownText();
+                }
+                @Override
+                public void onFinish() {
+                    if(quit_btn_re==1){
+                        mTimerRunning = false;
+                        finish();
+                    }
+                    else {
+                        mTimerRunning = false;
+                        Intent in = new Intent(activity_quiz.this, activity_result  .class);
+                        startActivity(in);
+                        finish();
+                    }
+
+                }
+            }.start();
+            mTimerRunning = true;
+        }
     }
 
     private void pauseTimer() {
         mCountDownTimer.cancel();
         mTimerRunning = false;
-        btn_start_pause.setText("Start");
-        btn_reset.setVisibility(View.VISIBLE);
+        mTimerRunning = false;
+    }
+
+
+    private void updateCountDownText() {
+        if(version_see==0){
+            int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
+            int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+            String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+            timer_text.setText(timeLeftFormatted);
+        }
+        if(version_see==1){
+            int minutes = (int) (mTimeLeftInMillis_1 / 1000) / 60;
+            int seconds = (int) (mTimeLeftInMillis_1 / 1000) % 60;
+            String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+            timer_text.setText(timeLeftFormatted);
+        }
+        if(version_see==2){
+            int minutes = (int) (mTimeLeftInMillis_2 / 1000) / 60;
+            int seconds = (int) (mTimeLeftInMillis_2 / 1000) % 60;
+            String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+            timer_text.setText(timeLeftFormatted);
+        }
+
     }
 
     private void resetTimer() {
-        mTimeLeftInMillis = START_TIME_IN_MILLIS;
-        updateCountDownText();
-        btn_reset.setVisibility(View.INVISIBLE);
-        btn_start_pause.setVisibility(View.VISIBLE);
-    }
-
-    private void updateCountDownText() {
-        int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
-        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
-
-        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
-
-        timer_text.setText(timeLeftFormatted);
+        if(version_see==0){
+            mTimeLeftInMillis = START_TIME_IN_MILLIS;
+            updateCountDownText();
+        }
+        else if(version_see==1){
+            mTimeLeftInMillis = START_TIME_IN_MILLIS;
+            updateCountDownText();
+        }
+        else if(version_see==2){
+            mTimeLeftInMillis = START_TIME_IN_MILLIS;
+            updateCountDownText();
+        }
     }
 
     //힌트
