@@ -9,6 +9,8 @@ import android.widget.ImageView;
 
 public class activity_splash extends AppCompatActivity {
 
+    public static int a = 0; //스플래쉬 한번 실행되도록 하는 변수
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +23,12 @@ public class activity_splash extends AppCompatActivity {
         quiz_image.startAnimation(animation_image);
         quiz_word.startAnimation(animation_word);
 
-        startLoading();
+        if (a==0) {
+            startLoading();
+            this.a = 1;
+        }
+        else
+            finish();
 
     }
 

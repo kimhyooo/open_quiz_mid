@@ -370,4 +370,9 @@ public class activity_quiz extends AppCompatActivity {
             dlg.show();
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        //뒤로가기 막음
+    }
 }
