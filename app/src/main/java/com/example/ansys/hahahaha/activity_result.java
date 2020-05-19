@@ -44,4 +44,9 @@ public class activity_result extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        //뒤로가기 막음
+    }
 }

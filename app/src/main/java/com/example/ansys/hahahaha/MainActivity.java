@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     ImageButton sound_btn, sound_btn_start;
     MediaPlayer mediaPlayer;
 
+    private BackPressCloseHandler backPressCloseHandler; //Main액티비티에서 뒤로가기 막고 토스띄움
+
     //액티비티가 종료될때 실행되는거
     @Override
     protected void onDestroy() {
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        backPressCloseHandler = new BackPressCloseHandler(this); // 뒤로가기 막고 토스
 
         Intent intent = new Intent(this, activity_splash.class);
         startActivity(intent);
@@ -77,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 //여기에 other클릭하면 어떤 이벤트 처리할건지 적으면 됩니다~
             }
         });
-
     }
+
+    @Override  //뒤로가기 토스
+    public void onBackPressed() {
+        backPressCloseHandler.onBackPressed();
+    }
+
 }
