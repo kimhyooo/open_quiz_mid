@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mediaPlayer != null){
+        if (mediaPlayer != null) {
             mediaPlayer.release();
             mediaPlayer = null;
         }
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         other_btn = findViewById(R.id.other_btn);
         //음악
         sound_btn = findViewById(R.id.sound_btn);
-        sound_btn_start=findViewById(R.id.sound_btn_start);
+        sound_btn_start = findViewById(R.id.sound_btn_start);
         sound_btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         sound_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mediaPlayer.isPlaying()){
+                if (mediaPlayer.isPlaying()) {
                     mediaPlayer.stop();
                     mediaPlayer.reset();
                 }
@@ -69,13 +69,13 @@ public class MainActivity extends AppCompatActivity {
         start_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences preferences = getSharedPreferences("logUser",0);
+                SharedPreferences preferences = getSharedPreferences("logUser", 0);
                 SharedPreferences.Editor editor = preferences.edit();
                 name = edit_name.getText().toString();
                 editor.putString("lastUser", String.valueOf(name));
                 editor.commit();
                 Intent intent = new Intent(MainActivity.this, activity_version_quiz.class);
-                intent.putExtra("name",name);
+                intent.putExtra("name", name);
                 startActivity(intent);
             }
         });
@@ -83,10 +83,13 @@ public class MainActivity extends AppCompatActivity {
         other_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //여기에 other클릭하면 어떤 이벤트 처리할건지 적으면 됩니다~
+                Intent intent = new Intent(MainActivity.this, activity_other.class);
+                startActivity(intent);
             }
         });
     }
+
+
 
     @Override  //뒤로가기 토스
     public void onBackPressed() {

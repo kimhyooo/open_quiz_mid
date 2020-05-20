@@ -21,7 +21,12 @@
         <activity android:name=".activity_open_quiz" />
         <activity android:name=".activity_version_quiz" />
         <activity android:name=".activity_score"/>
-        <activity android:name=".activity_splash"></activity>
+        <activity android:name="activity_other"/>
+        <activity android:name=".QuestionActivity"/>
+        <activity android:name=".QuestionListActivity"/>
+        <activity android:name=".QuizActivity"/>
+        <activity android:name=".activity_splash">
+        </activity>
     </application>
 
 </manifest>
