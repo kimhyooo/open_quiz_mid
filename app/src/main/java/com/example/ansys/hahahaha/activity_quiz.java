@@ -1,6 +1,7 @@
 package com.example.ansys.hahahaha;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -180,6 +181,11 @@ public class activity_quiz extends AppCompatActivity {
                 mTimerRunning = false;
                 quit_btn_re=1; // 이 버튼 누르면 1로 바뀜
                 resetTimer();
+
+                SharedPreferences preferences = getSharedPreferences("logUser",0);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("correct",correct);
+                editor.commit();
                 Intent intent=new Intent(getApplicationContext(),activity_result.class);
                 startActivity(intent);
             }

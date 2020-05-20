@@ -39,7 +39,7 @@ public class activity_result extends AppCompatActivity {
         re_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getApplicationContext(),MainActivity.class);
+                Intent in = new Intent(getApplicationContext(),activity_score.class);
                 startActivity(in);
             }
         });

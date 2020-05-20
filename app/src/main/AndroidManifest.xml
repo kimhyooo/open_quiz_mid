@@ -20,6 +20,7 @@
         <activity android:name=".activity_result" />
         <activity android:name=".activity_open_quiz" />
         <activity android:name=".activity_version_quiz" />
+        <activity android:name=".activity_score"/>
         <activity android:name=".activity_splash"></activity>
     </application>
 

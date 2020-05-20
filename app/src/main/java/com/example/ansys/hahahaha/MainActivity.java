@@ -1,6 +1,7 @@
 package com.example.ansys.hahahaha;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -68,7 +69,11 @@ public class MainActivity extends AppCompatActivity {
         start_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences preferences = getSharedPreferences("logUser",0);
+                SharedPreferences.Editor editor = preferences.edit();
                 name = edit_name.getText().toString();
+                editor.putString("lastUser", String.valueOf(name));
+                editor.commit();
                 Intent intent = new Intent(MainActivity.this, activity_version_quiz.class);
                 intent.putExtra("name",name);
                 startActivity(intent);
