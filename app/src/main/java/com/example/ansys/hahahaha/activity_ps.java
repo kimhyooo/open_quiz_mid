@@ -15,10 +15,9 @@ public class activity_ps extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ps);
-    }
-    public void onConfirm(View v) {
         EditText password = findViewById(R.id.pwText);
         enterbutton = findViewById(R.id.enterbtn);
+
         enterbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

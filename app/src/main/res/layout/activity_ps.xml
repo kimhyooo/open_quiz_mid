@@ -35,7 +35,6 @@
             android:id="@+id/enterbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onConfirm"
             android:text="들어가기"
             tools:layout_editor_absoluteX="29dp"
             tools:layout_editor_absoluteY="107dp" />
