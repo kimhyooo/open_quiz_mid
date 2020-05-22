@@ -214,6 +214,11 @@ public class activity_quiz extends AppCompatActivity {
                         mTimerRunning = false;
                         finish();
                     }
+                    else if(count==11){
+                        mTimerRunning = false;
+                        resetTimer();
+                        finish();
+                    }
                     else {
                         mTimerRunning = false;
                         Intent in = new Intent(activity_quiz.this, activity_result  .class);
@@ -240,6 +245,11 @@ public class activity_quiz extends AppCompatActivity {
                         mTimerRunning = false;
                         finish();
                     }
+                    else if(count==11){
+                        mTimerRunning = false;
+                        resetTimer();
+                        finish();
+                    }
                     else {
                         mTimerRunning = false;
                         Intent in = new Intent(activity_quiz.this, activity_result  .class);
@@ -263,6 +273,11 @@ public class activity_quiz extends AppCompatActivity {
                 public void onFinish() {
                     if(quit_btn_re==1){
                         mTimerRunning = false;
+                        finish();
+                    }
+                    else if(count==11){
+                        mTimerRunning = false;
+                        resetTimer();
                         finish();
                     }
                     else {
