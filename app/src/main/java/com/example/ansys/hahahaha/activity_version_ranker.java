@@ -28,6 +28,7 @@ public class activity_version_ranker extends AppCompatActivity {
                 version_see=0;
                 Intent intent = new Intent(activity_version_ranker.this, activity_ranker.class);
                 startActivity(intent);
+                finish();
             }
         });
         version_btn2.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +37,7 @@ public class activity_version_ranker extends AppCompatActivity {
                 version_see=1;
                 Intent intent = new Intent(activity_version_ranker.this, activity_ranker.class);
                 startActivity(intent);
+                finish();
             }
         });
         version_btn3.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +46,7 @@ public class activity_version_ranker extends AppCompatActivity {
                 version_see=2;
                 Intent intent = new Intent(activity_version_ranker.this, activity_ranker.class);
                 startActivity(intent);
+                finish();
             }
         });
         version_btn4.setOnClickListener(new View.OnClickListener() {
