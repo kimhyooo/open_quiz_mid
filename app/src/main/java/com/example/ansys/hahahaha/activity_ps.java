@@ -24,6 +24,7 @@ public class activity_ps extends AppCompatActivity {
                 if (pw.equals(password.getText().toString())) {
                     Intent intent = new Intent(activity_ps.this, QuestionListActivity.class);
                     startActivity(intent);
+                    finish();
                 } else
                     finish();
             }
