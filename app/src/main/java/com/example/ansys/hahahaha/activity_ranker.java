@@ -70,6 +70,7 @@ public class activity_ranker extends AppCompatActivity {
             public void onClick(View view) {
                 Intent in = new Intent(getApplicationContext(), activity_version_ranker.class);
                 startActivity(in);
+                finish();
             }
         });
     }
