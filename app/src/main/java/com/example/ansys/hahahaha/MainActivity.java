@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         sound_btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.jorgesys_song);
+                mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.music);
                 mediaPlayer.start();
             }
         });

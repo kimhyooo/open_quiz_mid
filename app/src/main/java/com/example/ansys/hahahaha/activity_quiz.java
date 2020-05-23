@@ -127,6 +127,15 @@ public class activity_quiz extends AppCompatActivity {
 
                 count++;
 
+                if (rb_grp.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(getApplicationContext(), "하나를 고르세요!", Toast.LENGTH_SHORT).show();
+                    count--;
+                    count_quiz.setText(count + "/" + question.length);
+                    return;}
+                else {
+                    count_quiz.setText(count + "/" + question.length);
+                }
+
                    RadioButton uans = findViewById(rb_grp.getCheckedRadioButtonId());
                    String ansText = uans.getText().toString(); //사용자가 한 텍스트
 
@@ -156,14 +165,6 @@ public class activity_quiz extends AppCompatActivity {
                     rb3.setText(opt[flag*4 +2]);
                     rb4.setText(opt[flag*4 +3]);
 
-                    if (rb_grp.getCheckedRadioButtonId() == -1) {
-                        Toast.makeText(getApplicationContext(), "하나를 고르세요!", Toast.LENGTH_SHORT).show();
-                        count--;
-                        count_quiz.setText(count + "/" + question.length);
-                        return;}
-                    else {
-                        count_quiz.setText(count + "/" + question.length);
-                    }
                 }
                 else
                 {
