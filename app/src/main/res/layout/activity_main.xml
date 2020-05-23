@@ -65,13 +65,29 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/other_btn"
+        android:id="@+id/ranker_btn"
         android:layout_width="250dp"
         android:layout_height="55dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="22dp"
+        android:background="@drawable/round_corner"
+        android:text="명예의 전당"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_btn" />
+
+    <Button
+        android:id="@+id/other_btn"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/round_corner"
         android:backgroundTint="@color/colorGray"
         android:text="OTHER"
@@ -80,7 +96,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/ranker_btn" />
 
     <ImageButton
         android:id="@+id/sound_btn"

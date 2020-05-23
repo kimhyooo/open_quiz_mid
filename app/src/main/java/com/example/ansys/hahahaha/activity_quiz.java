@@ -182,12 +182,30 @@ public class activity_quiz extends AppCompatActivity {
                 quit_btn_re=1; // 이 버튼 누르면 1로 바뀜
                 resetTimer();
 
-                SharedPreferences preferences = getSharedPreferences("logUser",0);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putInt("correct",correct);
-                editor.commit();
-                Intent intent=new Intent(getApplicationContext(),activity_result.class);
-                startActivity(intent);
+                if(version_see==0){
+                    SharedPreferences preferences = getSharedPreferences("logUser",0);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putInt("hard_correct",correct);
+                    editor.commit();
+                    Intent intent=new Intent(getApplicationContext(),activity_result.class);
+                    startActivity(intent);
+                }
+                if(version_see==1){
+                    SharedPreferences preferences = getSharedPreferences("logUser",0);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putInt("normal_correct",correct);
+                    editor.commit();
+                    Intent intent=new Intent(getApplicationContext(),activity_result.class);
+                    startActivity(intent);
+                }
+                if(version_see==2){
+                    SharedPreferences preferences = getSharedPreferences("logUser",0);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putInt("easy_correct",correct);
+                    editor.commit();
+                    Intent intent=new Intent(getApplicationContext(),activity_result.class);
+                    startActivity(intent);
+                }
             }
         });
 
