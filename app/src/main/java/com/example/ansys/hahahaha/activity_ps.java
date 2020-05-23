@@ -22,7 +22,7 @@ public class activity_ps extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (pw.equals(password.getText().toString())) {
-                    Intent intent = new Intent(activity_ps.this, activity_other.class);
+                    Intent intent = new Intent(activity_ps.this, QuestionListActivity.class);
                     startActivity(intent);
                 } else
                     finish();

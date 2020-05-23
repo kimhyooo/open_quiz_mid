@@ -23,7 +23,7 @@ public class activity_other extends AppCompatActivity {
 
     public void onSetting(View v){
 
-        startActivity(new Intent(this, QuestionListActivity.class));
+        startActivity(new Intent(this, activity_ps.class));
     }
 }
 
