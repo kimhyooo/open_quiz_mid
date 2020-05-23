@@ -20,7 +20,9 @@ public class QuizActivity extends AppCompatActivity {
     private TextView questionText, quizText1, quizText2, quizText3, quizText4;
     private RadioGroup radioGroup;
     private int index = 0;
+    private TextView count;
     private Button quit_btn;
+    int score=0;
 
 
     @Override
@@ -35,7 +37,9 @@ public class QuizActivity extends AppCompatActivity {
         quizText3 = findViewById(R.id.QuizText3);
         quizText4 = findViewById(R.id.QuizText4);
         quit_btn=findViewById(R.id.quit_btn);
+        count = findViewById(R.id.count);
         intent = getIntent();
+
         setQuizData();
         setLayout();
 
@@ -57,9 +61,10 @@ public class QuizActivity extends AppCompatActivity {
             Toast.makeText(QuizActivity.this, "문제가 없습니다.", Toast.LENGTH_SHORT).show();
             finish();
         } else if (quizData.size() == index) {
-            Toast.makeText(QuizActivity.this, "끝", Toast.LENGTH_SHORT).show();
+            Toast.makeText(QuizActivity.this, "문제가 끝났습니다. 총점 : "+score, Toast.LENGTH_SHORT).show();
             finish();
         } else {
+            count.setText(index+1+"/"+quizData.size());
             radioGroup.clearCheck();
             setData();
         }
@@ -80,21 +85,21 @@ public class QuizActivity extends AppCompatActivity {
         int answer = quizData.get(index).getAnswer();
         if(answer == 1 && select == R.id.quizButton1){
             Toast.makeText(QuizActivity.this, "정답! ", Toast.LENGTH_SHORT).show();
-
+            score++;
         }
         else if(answer == 2 && select == R.id.quizButton2){
             Toast.makeText(QuizActivity.this, "정답! ", Toast.LENGTH_SHORT).show();
-
+            score++;
         }
         else if(answer == 3 && select == R.id.quizButton3){
             Toast.makeText(QuizActivity.this, "정답! ", Toast.LENGTH_SHORT).show();
-
+            score++;
         }
         else if(answer == 4 && select == R.id.quizButton4){
             Toast.makeText(QuizActivity.this, "정답! ", Toast.LENGTH_SHORT).show();
-
+            score++;
         }
-        else if(answer == 0){
+        else if(radioGroup.getCheckedRadioButtonId()==-1){
             Toast.makeText(QuizActivity.this, "정답을 선택해주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
