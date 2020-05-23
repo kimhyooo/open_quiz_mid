@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 public class MainActivity extends AppCompatActivity {
 
     EditText edit_name;
-    Button start_btn, other_btn;
+    Button start_btn, ranker_btn, other_btn;
     String name;
     //음악버튼
     ImageButton sound_btn, sound_btn_start;
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         edit_name = findViewById(R.id.edit_name);
         start_btn = findViewById(R.id.start_btn);
+        ranker_btn = findViewById(R.id.ranker_btn);
         other_btn = findViewById(R.id.other_btn);
         //음악
         sound_btn = findViewById(R.id.sound_btn);
@@ -76,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
                 Intent intent = new Intent(MainActivity.this, activity_version_quiz.class);
                 intent.putExtra("name", name);
+                startActivity(intent);
+            }
+        });
+
+        ranker_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, activity_version_ranker.class);
                 startActivity(intent);
             }
         });
