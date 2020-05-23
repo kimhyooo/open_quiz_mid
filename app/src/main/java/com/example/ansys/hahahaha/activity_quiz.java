@@ -234,13 +234,17 @@ public class activity_quiz extends AppCompatActivity {
                         mTimerRunning = false;
                         finish();
                     }
-                    else if(count==11){
+                    else if(count + 1==11){
                         mTimerRunning = false;
                         resetTimer();
                         finish();
                     }
                     else {
                         mTimerRunning = false;
+                        SharedPreferences preferences = getSharedPreferences("logUser",0);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putInt("hard_correct",correct);
+                        editor.commit();
                         Intent in = new Intent(activity_quiz.this, activity_result  .class);
                         startActivity(in);
                         finish();
@@ -265,13 +269,17 @@ public class activity_quiz extends AppCompatActivity {
                         mTimerRunning = false;
                         finish();
                     }
-                    else if(count==11){
+                    else if(count + 1 ==11){
                         mTimerRunning = false;
                         resetTimer();
                         finish();
                     }
                     else {
                         mTimerRunning = false;
+                        SharedPreferences preferences = getSharedPreferences("logUser",0);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putInt("normal_correct",correct);
+                        editor.commit();
                         Intent in = new Intent(activity_quiz.this, activity_result  .class);
                         startActivity(in);
                         finish();
@@ -295,13 +303,17 @@ public class activity_quiz extends AppCompatActivity {
                         mTimerRunning = false;
                         finish();
                     }
-                    else if(count==11){
+                    else if(count + 1 ==11){
                         mTimerRunning = false;
                         resetTimer();
                         finish();
                     }
                     else {
                         mTimerRunning = false;
+                        SharedPreferences preferences = getSharedPreferences("logUser",0);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putInt("easy_correct",correct);
+                        editor.commit();
                         Intent in = new Intent(activity_quiz.this, activity_result  .class);
                         startActivity(in);
                         finish();
