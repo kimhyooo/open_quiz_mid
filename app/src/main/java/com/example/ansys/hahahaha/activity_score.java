@@ -193,6 +193,10 @@ public class activity_score extends AppCompatActivity {
                 startActivity(in);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 }
