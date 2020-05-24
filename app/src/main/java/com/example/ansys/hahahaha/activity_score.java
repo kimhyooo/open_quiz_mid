@@ -28,15 +28,15 @@ public class activity_score extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("logUser", 0);
         name = preferences.getString("lastUser", String.valueOf(name));
-        best1_n_h = preferences.getString("best1_n", "");
-        best2_n_h = preferences.getString("best2_n", "");
-        best3_n_h = preferences.getString("best3_n", "");
-        best1_n_n = preferences.getString("best1_n", "");
-        best2_n_n = preferences.getString("best2_n", "");
-        best3_n_n = preferences.getString("best3_n", "");
-        best1_n_e = preferences.getString("best1_n", "");
-        best2_n_e = preferences.getString("best2_n", "");
-        best3_n_e = preferences.getString("best3_n", "");
+        best1_n_h = preferences.getString("best1_n_h", "");
+        best2_n_h = preferences.getString("best2_n_h", "");
+        best3_n_h = preferences.getString("best3_n_H", "");
+        best1_n_n = preferences.getString("best1_n_n", "");
+        best2_n_n = preferences.getString("best2_n_n", "");
+        best3_n_n = preferences.getString("best3_n_n", "");
+        best1_n_e = preferences.getString("best1_n_e", "");
+        best2_n_e = preferences.getString("best2_n_e", "");
+        best3_n_e = preferences.getString("best3_n_e", "");
         best1_s_h = preferences.getInt("best1_s_h", 0);
         best2_s_h = preferences.getInt("best2_s_h", 0);
         best3_s_h = preferences.getInt("best3_s_h", 0);
@@ -88,6 +88,7 @@ public class activity_score extends AppCompatActivity {
                 editor.putInt("best1_s_h", best1_s_h);
                 editor.apply();
             }
+            user.setText("사용자 이름: " + name + " " + correct + "점");
             rank.setText("1등: " + best1_n_h + " " + best1_s_h + "\n" +
                     "2등: " + best2_n_h + " " + best2_s_h + "\n" +
                     "3등: " + best3_n_h + " " + best3_s_h);
@@ -133,6 +134,7 @@ public class activity_score extends AppCompatActivity {
                 editor.putInt("best1_s_n", best1_s_n);
                 editor.apply();
             }
+            user.setText("사용자 이름: " + name + " " + correct + "점");
             rank.setText("1등: " + best1_n_n + " " + best1_s_n + "\n" +
                     "2등: " + best2_n_n + " " + best2_s_n + "\n" +
                     "3등: " + best3_n_n + " " + best3_s_n);
@@ -178,12 +180,11 @@ public class activity_score extends AppCompatActivity {
                 editor.putInt("best1_s_e", best1_s_e);
                 editor.apply();
             }
+            user.setText("사용자 이름: " + name + " " + correct + "점");
             rank.setText("1등: " + best1_n_e + " " + best1_s_e + "\n" +
                     "2등: " + best2_n_e + " " + best2_s_e + "\n" +
                     "3등: " + best3_n_e + " " + best3_s_e);
         }
-
-        user.setText("사용자 이름: " + name + " " + correct + "점");
 
         re_btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -171,8 +171,30 @@ public class activity_quiz extends AppCompatActivity {
                     count--;
                     count_quiz.setText(count + "/" + question.length);
                     marks=correct;
-                    Intent in = new Intent(getApplicationContext(),activity_result.class);
-                    startActivity(in);
+                    if(version_see==0){
+                        SharedPreferences preferences = getSharedPreferences("logUser",0);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putInt("hard_correct",correct);
+                        editor.commit();
+                        Intent intent=new Intent(getApplicationContext(),activity_result.class);
+                        startActivity(intent);
+                    }
+                    if(version_see==1){
+                        SharedPreferences preferences = getSharedPreferences("logUser",0);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putInt("normal_correct",correct);
+                        editor.commit();
+                        Intent intent=new Intent(getApplicationContext(),activity_result.class);
+                        startActivity(intent);
+                    }
+                    if(version_see==2){
+                        SharedPreferences preferences = getSharedPreferences("logUser",0);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putInt("easy_correct",correct);
+                        editor.commit();
+                        Intent intent=new Intent(getApplicationContext(),activity_result.class);
+                        startActivity(intent);
+                    }
                 }
                 rb_grp.clearCheck();
             }
