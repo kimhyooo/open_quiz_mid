@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     ImageButton sound_btn;
     MediaPlayer mediaPlayer;
 
+    public static int music_end = 0;
+
     private BackPressCloseHandler backPressCloseHandler; //Main액티비티에서 뒤로가기 막고 토스띄움
 
     //액티비티가 종료될때 실행되는거
@@ -49,8 +51,14 @@ public class MainActivity extends AppCompatActivity {
         sound_btn = findViewById(R.id.sound_btn);
 
 
-        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.music);
-        mediaPlayer.start();
+        if(music_end==0){
+            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.music);
+            mediaPlayer.start();
+            music_end++;
+        }
+        else if(music_end>=1){
+        }
+
 
         sound_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 if (mediaPlayer.isPlaying()) {
                     mediaPlayer.stop();
                     mediaPlayer.reset();
+                    music_end ++;
                 }
             }
         });
