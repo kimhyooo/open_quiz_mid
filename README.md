@@ -1,4 +1,11 @@
 # 퀴즈 어플리케이션 
+
++ 메인/퀴즈/랭킹/문항추가DB연동
+
+![111111](https://user-images.githubusercontent.com/63217411/83966172-98a9b700-a8f3-11ea-9718-ca6a22b2f69a.png)
+![111111](https://user-images.githubusercontent.com/63217411/83966189-b8d97600-a8f3-11ea-9a86-ef2ffa19fed9.png)
+![111111](https://user-images.githubusercontent.com/63217411/83966204-c7c02880-a8f3-11ea-8967-b8934901aba1.png)
+![111111](https://user-images.githubusercontent.com/63217411/83966216-ddcde900-a8f3-11ea-8444-5c4b6fe87e32.png)
 + 개요
    +  정답과 오답만을 가리는 기존의 퀴즈 어플에서 벗어나 타이머, 점수, 랭킹 등 많은 기능을 추가하여 사용자의 사용 즐거움과 만족감을 늘였다. 
 사용자가 직접 퀴즈를 만들어 볼 수 있고 그 문제를 풀어 볼 수 있는 기능을 넣어 기존의 문제 뿐만 아니라 원하는 분야의 문제를 포함하여 사용자들의 흥미를 이끌 수 있도록 하였다.
